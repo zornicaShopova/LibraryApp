@@ -1,0 +1,30 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="book.api.libplovediv.MainActivity">
+
+    <item
+        android:id="@+id/Books"
+        android:icon="@drawable/ic_baseline_menu_book_24"
+        android:title="Books">
+
+    </item>
+
+    <item
+        android:id="@+id/profile"
+        android:icon="@drawable/ic_baseline_person_24"
+        android:title="Profile" />
+    <item
+        android:id="@+id/scan"
+        android:icon="@drawable/ic_baseline_document_scanner_24"
+        android:title="Scanner" />
+    <item
+        android:id="@+id/searchBooks"
+        android:icon="@drawable/ic_baseline_search_24"
+        android:title="Search" />
+    <item
+        android:id="@+id/action_settings"
+        android:icon="@drawable/ic_baseline_settings_24"
+        android:title="@string/action_settings" />
+
+</menu>
