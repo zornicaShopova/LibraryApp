@@ -33,13 +33,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     EditText emailLogin, passwordLogin;
     TextView  forgotPassTV;
-    //regular btn for login
     Button loginB;
 
     private FirebaseAuth mAuth;
     private CallbackManager mCallbackManager;
     private static final String TAG = "FacebookAuthentication";
-    //use facebook button
     private LoginButton loginButton;
 
 
@@ -50,8 +48,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         loginB = findViewById(R.id.loginButton);
         loginB.setOnClickListener(this);
-
-        //facebook login bnt
         loginButton = findViewById(R.id.login_button);
 
         emailLogin = findViewById(R.id.emailLoginET);
@@ -60,7 +56,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         //firebase auth
         mAuth = FirebaseAuth.getInstance();
         FacebookSdk.sdkInitialize(getApplicationContext());
-
 
         // loginButton.setReadPermissions("email", "public_profile");
 
@@ -102,7 +97,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 if (task.isSuccessful()) {
                     Log.d(TAG, "sign in with credential: successful");
                     FirebaseUser user = mAuth.getCurrentUser();
-                    //change ui
                      //updateUI(user);
 
                 } else {
@@ -113,7 +107,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         });
     }
 
-    //this open the Home Activity
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -128,7 +121,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            // open registration activity
             case R.id.loginButton:
                 userLogin();
                 break;
@@ -136,8 +128,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         }
     }
 
-
-    //take email  and pass from firebase to log in
+    //login with password and email
     private void userLogin() {
         String email = emailLogin.getText().toString();
         String pass = passwordLogin.getText().toString();

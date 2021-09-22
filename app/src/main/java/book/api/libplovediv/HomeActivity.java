@@ -37,8 +37,6 @@ public class HomeActivity extends AppCompatActivity {
     Context context;
     BottomNavigationView btnView;
 
-
-
     @Override
     public void onBackPressed() {
         //super.onBackPressed();
@@ -52,7 +50,7 @@ public class HomeActivity extends AppCompatActivity {
         rv = findViewById(R.id.bookList);
         btnView = findViewById(R.id.bottomNavigationView);
 
-        //connect the firebase db
+        //connect to the firebase database
         database = FirebaseDatabase.getInstance().getReference("BookShelf");
         //change the size based on adapter behavior
         rv.setHasFixedSize(true);
@@ -63,20 +61,18 @@ public class HomeActivity extends AppCompatActivity {
         rv.setAdapter(bookAdapter);
 
         clearAll();
-        //firebase database
+
         database.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-                // its like iterator for data in firebase
+                // display book data from database
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                    //get info from db about the books
                     BookInfo book = dataSnapshot.getValue(BookInfo.class);
                     list.add(book);
 
                 }
                 bookAdapter.notifyDataSetChanged();
-
             }
 
             @Override
@@ -99,8 +95,6 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-
-
     }
 
     private void clearAll() {
@@ -111,7 +105,6 @@ public class HomeActivity extends AppCompatActivity {
                 bookAdapter.notifyDataSetChanged();
             }
         }
-       // click items from bottom menu
         btnView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {

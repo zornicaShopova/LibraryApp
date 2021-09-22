@@ -8,6 +8,7 @@ import androidx.core.content.ContextCompat;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.media.AudioManager;
 import android.media.ToneGenerator;
@@ -27,6 +28,8 @@ import com.google.android.gms.vision.barcode.BarcodeDetector;
 import com.google.zxing.Result;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import me.dm7.barcodescanner.zxing.ZXingScannerView;
 
@@ -37,6 +40,9 @@ public class ScanActivity extends AppCompatActivity implements ZXingScannerView.
     TextView barcodeTV;
     Button okB, cancelB;
     String code;
+    BookInfo barcode;
+    List<BookInfo> listBooks;
+    TextView scanResultTV;
 
     BarcodeDetector barcodeDetector;
     CameraSource cameraSource;
@@ -49,8 +55,9 @@ public class ScanActivity extends AppCompatActivity implements ZXingScannerView.
         scannerView = new ZXingScannerView(this);
         setContentView(scannerView);
 
+        scanResultTV = findViewById(R.id.scanResultTV);
+        listBooks = new ArrayList<>();
 
-        //sound when code is scaned
         toneGenerator = new ToneGenerator(AudioManager.STREAM_ALARM, 50);
 
         //init();
@@ -59,9 +66,26 @@ public class ScanActivity extends AppCompatActivity implements ZXingScannerView.
 
     @Override
     public void handleResult(Result result) {
+        barcode = new BookInfo();
+//        // take the book barcode and search in database
+//        for (int i = 0; i < listBooks.size(); i++) {
+//           String code = barcode.getBarcode();
+//            listBooks.get(i).getBarcode();
+//
+//            if(result.toString() == code){
+//                Intent intent = new Intent(ScanActivity.this,InformationBookActivity.class);
+//                startActivity(intent);
+//
+//                Log.i("Code", " code: " + code);
+//            }
+//        }
 
-        ReservationBooksActivity.scanResultTV.setText(result.getText().toString());
-        Log.i("Barcode",""+result);
+//            if(result.toString() != barcode.getBarcode().toString() ){
+//
+//            }
+
+        ReservationBooksActivity.scanResultTV.setText(result.getText());
+        Log.i("Barcode", " barcode scan :  " + result.toString());
 
     }
 

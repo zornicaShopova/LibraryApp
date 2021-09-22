@@ -21,7 +21,7 @@
                 android:fontFamily="serif-monospace"
                 android:text="Title:"
                 android:textColor="#241A1A"
-                android:textSize="24sp" />
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/textView14"
@@ -30,7 +30,7 @@
                 android:fontFamily="serif-monospace"
                 android:text="Author:"
                 android:textColor="#241A1A"
-                android:textSize="24sp" />
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/textView15"
@@ -39,7 +39,7 @@
                 android:fontFamily="serif-monospace"
                 android:text="Date:"
                 android:textColor="#241A1A"
-                android:textSize="24sp" />
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/textView18"
@@ -48,7 +48,7 @@
                 android:fontFamily="serif-monospace"
                 android:text="Return date:"
                 android:textColor="#362626"
-                android:textSize="24sp" />
+                android:textSize="20sp" />
 
         </LinearLayout>
 
@@ -65,7 +65,7 @@
                 android:fontFamily="serif-monospace"
                 android:text="TextView"
                 android:textColor="#241A1A"
-                android:textSize="24sp" />
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/authorB"
@@ -74,7 +74,7 @@
                 android:fontFamily="serif-monospace"
                 android:text="TextView"
                 android:textColor="#241A1A"
-                android:textSize="24sp" />
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/dateToTake"
@@ -83,7 +83,7 @@
                 android:fontFamily="serif-monospace"
                 android:text="TextView"
                 android:textColor="#241A1A"
-                android:textSize="24sp" />
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/returnDate"
@@ -92,7 +92,7 @@
                 android:fontFamily="serif-monospace"
                 android:text="TextView"
                 android:textColor="#362626"
-                android:textSize="24sp" />
+                android:textSize="20sp" />
 
         </LinearLayout>
     </LinearLayout>

@@ -26,10 +26,6 @@ public class RegistrationActivity extends AppCompatActivity {
     EditText fullnameET, emailET ,passwordET;
     Button registerB;
 
-
-    //autoincrement  the users records in the db
-    long maxID = 0;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,28 +38,10 @@ public class RegistrationActivity extends AppCompatActivity {
         passwordET = findViewById(R.id.passwordEditText);
         registerB = findViewById(R.id.registerButton);
 
-
-        //autoincrement the user id in the firebase
-//        reference.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                if (snapshot.exists()) {
-//                    maxID = snapshot.getChildrenCount();
-//                }
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//
-//            }
-//        });
-
-
-        //sent data to the firebase db
+        //push data to the database
         registerB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //take the input from  the fields
                 String fullnameInput = fullnameET.getText().toString().trim();
                 String emailInput = emailET.getText().toString();
                 String passInput = passwordET.getText().toString();
@@ -100,8 +78,6 @@ public class RegistrationActivity extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
-                                    //reference for the firebase db with table name RegisteredUser
-                                    // increment the data base record by adding a new user
                                     User user = new User(fullnameInput, emailInput, passInput);
                                     FirebaseDatabase.getInstance().getReference("RegisteredUser")
                                             .child(FirebaseAuth.getInstance().getUid())
@@ -121,7 +97,6 @@ public class RegistrationActivity extends AppCompatActivity {
                             }
                         });
 
-               // reference.child(String.valueOf(maxID + 1)).setValue(user);
                 fullnameET.setText("");
                 emailET.setText("");
                 passwordET.setText("");

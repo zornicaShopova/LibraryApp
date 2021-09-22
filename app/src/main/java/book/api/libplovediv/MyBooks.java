@@ -1,8 +1,26 @@
 package book.api.libplovediv;
-
+//reservations
 public class MyBooks {
     String titleBook;
     String authorBook;
+    String pickupDate;
+    String returnDate;
+
+    public String getPickupDate() {
+        return pickupDate;
+    }
+
+    public void setPickupDate(String pickupDate) {
+        this.pickupDate = pickupDate;
+    }
+
+    public String getReturnDate() {
+        return returnDate;
+    }
+
+    public void setReturnDate(String returnDate) {
+        this.returnDate = returnDate;
+    }
 
     public MyBooks() {
 

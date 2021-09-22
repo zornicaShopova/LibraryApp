@@ -21,6 +21,8 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.xml.transform.Result;
+
 public class ReservationBooksActivity extends AppCompatActivity {
     ReservationBookAdapter adapter;
     List<MyBooks> bookInfoList;
@@ -28,6 +30,7 @@ public class ReservationBooksActivity extends AppCompatActivity {
     DatabaseReference ref;
     public static TextView scanResultTV;
     Button click;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,14 +45,12 @@ public class ReservationBooksActivity extends AppCompatActivity {
         click.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
-                Toast.makeText(ReservationBooksActivity.this,scanResultTV.getText(),Toast.LENGTH_SHORT).show();
+                //Toast.makeText(ReservationBooksActivity.this,scanResultTV.getText(),Toast.LENGTH_SHORT).show();
             }
         });
 
-        //firebase
-        ref = FirebaseDatabase.getInstance().getReference("MyBooks");
+        //get books reservations data
+        ref = FirebaseDatabase.getInstance().getReference("UserReservations");
         reservationBookList.setHasFixedSize(true);
         reservationBookList.setLayoutManager(new LinearLayoutManager(this));
 

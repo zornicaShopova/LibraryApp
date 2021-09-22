@@ -38,6 +38,8 @@ public class ReservationBookAdapter extends RecyclerView.Adapter<ReservationBook
         MyBooks book = bookInfoList.get(position);
         holder.authorB.setText(book.getAuthorBook());
         holder.titleB.setText(book.getTitleBook());
+        holder.pickUpDate.setText(book.getPickupDate());
+        holder.returnDate.setText(book.getReturnDate());
     }
 
     @Override
@@ -47,11 +49,13 @@ public class ReservationBookAdapter extends RecyclerView.Adapter<ReservationBook
 
     public static class BookViewHolder extends RecyclerView.ViewHolder {
 
-        TextView titleB,authorB;
+        TextView titleB,authorB,pickUpDate,returnDate;
         public BookViewHolder(View itemView) {
             super(itemView);
             titleB = itemView.findViewById(R.id.titleB);
             authorB = itemView.findViewById(R.id.authorB);
+            pickUpDate = itemView.findViewById(R.id.dateToTake);
+            returnDate = itemView.findViewById(R.id.returnDate);
 
 
         }

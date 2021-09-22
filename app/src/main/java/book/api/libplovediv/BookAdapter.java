@@ -23,7 +23,7 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
         this.context = context;
         this.list = list;
     }
-// on click event for an item in the rv
+    // click on book item
     private  OnRecyclerViewClickListener listener;
 
     public interface OnRecyclerViewClickListener{
@@ -50,6 +50,7 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
 
 
         //ImageView : Glide Library
+        //show book image
         Glide.with(context)
                 .load(list.get(position).getUrl())
                 .into(holder.bookCover);

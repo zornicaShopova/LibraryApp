@@ -6,6 +6,7 @@ public class BookInfo {
     String publishedDate;
     String rateBook;
     String url;
+    String barcode;
 
     public BookInfo() {
 
@@ -14,6 +15,14 @@ public class BookInfo {
     public BookInfo(String titleBook, String authorBook) {
         this.titleBook = titleBook;
         this.authorBook = authorBook;
+    }
+
+    public String getBarcode() {
+        return barcode;
+    }
+
+    public void setBarcode(String barcode) {
+        this.barcode = barcode;
     }
 
     public String getUrl() {
